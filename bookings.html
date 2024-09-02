@@ -4,19 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>bookings</title>
+  <title>Bookings</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <style type="text/css">
+  <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: rgb(43, 193, 181);
+      background-color: rgb(123, 108, 108);
     }
 
     header {
-      background-color: rgb(0, 0, 0);
-      opacity: 0.8;
+      background-color: gray;
+      color: white;
       padding: 15px;
     }
 
@@ -24,12 +23,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1%;
+      padding: 20px;
     }
 
     .logo a {
-      color: bisque;
-      font-size: 24px;
+      color: #fff;
+      font-size: 22px;
       font-weight: bold;
       text-decoration: none;
     }
@@ -37,94 +36,230 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 20px;
     }
 
     .nav-links li {
-      display: block;
+      margin: 0 14px;
     }
 
     .nav-links a {
-      color: bisque;
+      color: #fff;
       text-decoration: none;
       font-size: 18px;
+      transition: color 0.3s;
     }
 
     .nav-links a:hover {
-      color: rgb(234, 92, 92);
+      color: #090909;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: contents;
+        flex-direction: column;
+        align-items: center;
+        background-color: #215461;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+      }
+
+      .nav-links a {
+        font-size: 16px;
+      }
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .search-bar input {
+      width: 60%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #215461;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-left: 10px;
+    }
+
+    .search-bar button:hover {
+      background-color: #ffcc00;
+      color: #215461;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .filter-item {
+      margin: 0 10px;
+    }
+
+    .text {
+      position: relative;
+      text-align: center;
+      color: rgb(255, 255, 255);
+    }
+
+    .text-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+
+    .text h1 {
+      font-size: 28px;
+    }
+
+    .text p {
+      font-size: 20px;
+      margin: 18px;
+    }
+
+    .Arrow {
+      background-color: transparent;
+      color: white;
+      font-size: 36px;
+      border: none;
+      cursor: pointer;
+      padding: 8px 16px;
+      margin-top: 20px;
+    }
+
+    .Arrow i {
+      font-size: 24px;
+    }
+
+    .background-image {
+      background-image: url('/images/uuuuuu.jpg');
+      width: 100%;
+      height: 100vh;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     .offers {
       width: 80%;
       margin: auto;
       text-align: center;
-      padding-top: 100px;
-    }
-
-    h1 {
-      font-size: 36px;
-      font-weight: 600;
-      color: rgb(22, 21, 21);
+      padding-top: 50px;
     }
 
     .rows {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       gap: 20px;
-      color: rgb(29, 27, 25);
     }
 
     .travel-container {
       flex: 1;
-      max-width: 34%;
+      max-width: 30%;
+      text-align: left;
       margin-bottom: 20px;
-      padding: 20px 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .travel-container img {
-      max-width: 100%;
-      height: auto;
-      cursor: pointer;
+      width: 100%;
       border-radius: 8px;
+      margin-bottom: 10px;
+      transition: transform 0.5s;
     }
 
-    body {
+    .travel-container h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
 
-      background-color: rgb(123, 108, 108);
+    .travel-container:hover{
+      transform: translateY(-10px);
+    }
+    .travel-container p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
 
+    .travel-container button {
+      background-color: #215461;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .travel-container button:hover {
+      background-color: #ffcc00;
+      color: #215461;
+    }
+
+    .promotion-section,
+    .testimonials-section,
+    .travel-tips-section {
+      text-align: center;
+      margin: 20px auto;
+      padding: 20px;
+      width: 80%;
+    }
+
+    .promotion,
+    .testimonial,
+    .travel-tip {
+      margin-bottom: 20px;
+    }
+
+    .promotion h3,
+    .testimonial span,
+    .travel-tip p {
+      font-size: 18px;
+      margin: 10px 0;
     }
 
     footer {
-      
-      margin: 0;
       background-color: rgb(0, 0, 0);
       opacity: 0.5;
-      padding: 24px;
-      color: rgb(255, 228, 196);
+      padding: 18px;
+      color: white;
       text-align: center;
-    
     }
 
     .social-media {
       display: flex;
       justify-content: space-between;
-      padding: 1%;
-      margin-bottom: 3px;
-    }
-
-    .travel-container button {
-      background-color: rgb(34, 32, 32);
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      margin-top: 10px;
+      font-size: 20px;
+      align-items: center;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -133,85 +268,133 @@
   <div class="background-image">
     <header>
       <nav class="navbar">
-        <div class="logo"><a href="#">TravelGo</a>
-        </div>
+        <div class="logo"><a href="#">TravelGo</a></div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="bookings.html">Bookings</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-
     </header>
+
+    <section class="search-bar">
+      <input type="text" placeholder="Search for destinations, hotels, or activities...">
+      <button type="submit"><i class="bi bi-search"></i> Search</button>
+    </section>
+
+    <section class="filters">
+      <div class="filter-item">
+        <label for="destination">Destination:</label>
+        <select id="destination">
+          <option value="all">All</option>
+          <option value="beach">Beach</option>
+          <option value="mountains">Mountains</option>
+          <option value="city">City</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <label for="price">Price:</label>
+        <select id="price">
+          <option value="all">All</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <label for="rating">Rating:</label>
+        <select id="rating">
+          <option value="all">All</option>
+          <option value="3">3 Stars & Up</option>
+          <option value="4">4 Stars & Up</option>
+          <option value="5">5 Stars</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="offers">
+      <h1>Our Top Destinations</h1>
+      <div class="rows">
+        <div class="travel-container">
+          <img src="images/t.jpg" alt="Beach Destination">
+          <h2>Tropical Beach Escape</h2>
+          <p>Enjoy a beach getaway with luxury amenities, fine dining, and water sports. Prices starting from R9950.00
+          </p>
+          <button>Book Now</button>
+        </div>
+        <div class="travel-container">
+          <img src="images/Emerald Lake in Banff, Canada 🇨🇦.jpg" alt="Mountain Adventure">
+          <h2>Mountain Adventure</h2>
+          <p>Explore mountain landscapes with hiking, skiing, and more. Prices starting from R6730.00</p>
+          <button>Book Now</button>
+        </div>
+        <div class="travel-container">
+          <img src="images/_Best luxury city break hotels in Sydney CBD__.jpg" alt="City Break">
+          <h2>Urban City Break</h2>
+          <p>Experience the vibrancy of the city with cultural tours, shopping, and gourmet dining. Prices starting from
+            R4170.00</p>
+          <button>Book Now</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="promotion-section">
+      <h2>Exclusive Promotions</h2>
+      <div class="promotion">
+        <h3>Summer Getaway Deal</h3>
+        <p>Book now and get 20% off on your next summer trip! Explore the best destinations at unbeatable prices.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <div class="promotion">
+        <h3>Family Vacation Packages</h3>
+        <p>Special discounts for families. Enjoy quality time with your loved ones.</p>
+        <a href="#">View Packages</a>
+      </div>
+    </section>
+
+    <section class="testimonials-section">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial">
+        <p>"Our family had the best vacation ever thanks to TravelGo! The booking process was easy, and the service was
+          top-notch."</p>
+        <span>- Charles M.</span>
+      </div>
+      <div class="testimonial">
+        <p>"The trip to the mountains was breathtaking. We couldn't have asked for a better experience. Highly
+          recommended!"</p>
+        <span>- John D.</span>
+      </div>
+      <div class="testimonial">
+        <p>"City Lights package was everything we hoped for and more. Great service and excellent destination choices."
+        </p>
+        <span>- Sebanele M.</span>
+      </div>
+    </section>
+
+    <section class="travel-tips-section">
+      <h2>Travel Tips</h2>
+      <div class="travel-tip">
+        <p>Tip #1: Always book in advance to get the best deals on flights and accommodations.</p>
+      </div>
+      <div class="travel-tip">
+        <p>Tip #2: Make sure to pack essentials like sunscreen, chargers, and comfortable shoes.</p>
+      </div>
+      <div class="travel-tip">
+        <p>Tip #3: Research local customs and laws before traveling to a new destination.</p>
+      </div>
+    </section>
+
+    <footer>
+      <h1>Contact Us</h1>
+      <div class="social-media">
+        <i class="bi bi-whatsapp">WhatsApp</i>
+        <i class="bi bi-instagram">Instagram</i>
+        <i class="bi bi-facebook">Facebook</i>
+        <i class="bi bi-envelope">Email</i>
+      </div>
+      <p>&copy; 2024 TravelGo. All rights reserved.</p>
+    </footer>
   </div>
-
-  <section class="offers">
-
-    <h1>
-      Our Services
-
-    </h1>
-
-    <div class="rows">
-
-      <div class="travel-container">
-
-        <img src="images/2.jpg" alt="">
-
-        <h2>
-          Golden Hour Flights
-
-        </h2>
-
-        <p>From R990.00</p>
-
-        <button> Add to Cart </button>
-
-      </div>
-
-      <div class="travel-container">
-
-        <img src="images/t.jpg" alt="">
-
-        <h2>
-          Beach Vacation
-        </h2>
-        <p>From R1830.00</p>
-
-        <button> Add to Cart </button>
-      </div>
-
-      <div class="travel-container">
-
-        <img src="images/1.jpg" alt="">
-
-        <h2>
-          First-Class Flights
-        </h2>
-
-        <p>From R1200.00</p>
-
-        <button> Add to Cart </button>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-
-    <h1>Contact Us</h1>
-
-    <div class="social-media">
-      <i class="bi bi-whatsapp">WhatsApp</i>
-      <i class="bi bi-instagram">Instagram</i>
-      <i class="bi bi-facebook">Facebook</i>
-      <i class="bi bi-envelope">Email</i>
-    </div>
-    <p>&copy; 2024 TravelGo. All rights reserved.</p>
-  </footer>
-
-</body>
-
-</html>
 </body>
 
 </html>
